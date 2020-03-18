@@ -14,6 +14,12 @@ public class User implements Serializable{
 		super();
 	}
 	
+	public User(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+
 	public User(String username, String password, String firstName, String lastName) {
 		super();
 		this.username = username;
@@ -65,8 +71,10 @@ public class User implements Serializable{
 		if (!(obj instanceof User))
 			return false;
 		User other = (User) obj;
-		return Objects.equals(username, other.username);
+		return Objects.equals(password, other.password) && Objects.equals(username, other.username);
 	}
+
+	
 	
 
 }

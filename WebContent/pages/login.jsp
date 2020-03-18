@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ include file="menu.jsp" %>
+    
+    <c:if test="${sessionScope.token != null}">
+		<%request.getRequestDispatcher("/pages/index.jsp").forward(request, response);%>
+	</c:if>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +16,7 @@
 
 <c:set value="${pageContext.request.contextPath}" var="contextPath"></c:set>
 
-<form action="${contextPath}/application/user/login" method="post">
+<form action="${contextPath}/application/login" method="post">
 	<table>
 			<tr>
 				<td>Username:</td>

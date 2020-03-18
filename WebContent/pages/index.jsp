@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ include file="checkToken.jsp" %>
-    <%@ include file="menu.jsp" %>
+	pageEncoding="ISO-8859-1"%>
+<%@ include file="menu.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +9,8 @@
 </head>
 <body>
 	<div>
-	<a href="login.jsp">Login</a>
-</div>
+		<c:url value="/application/login" var="loginURL"></c:url>
+		<a href="<c:out value="${loginURL}"/>">Login</a>
+	</div>
 </body>
 </html>
