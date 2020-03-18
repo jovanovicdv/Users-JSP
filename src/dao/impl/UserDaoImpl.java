@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.util.List;
+import java.util.Objects;
 
 import dao.UserDao;
 import database.Database;
@@ -26,6 +27,16 @@ public class UserDaoImpl implements UserDao {
 		List<User> list = (List<User>) Database.getServletContext().getAttribute("users");
 		list.add(user);
 		Database.getServletContext().setAttribute("users", list);
+	}
+
+	@Override
+	public User findByUsername(String username) {
+		for (User user : getAll()) {
+			if (Objects.equals(username, user.getUsername())) {
+				return user;
+			}
+		}
+		return null;
 	}
 
 }

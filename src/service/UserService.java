@@ -8,6 +8,6 @@ public interface UserService {
 
 	List<User> getAll();
 	List<User> getAllOnline();
-	void save (User user);
+	void save (User user) throws Exception;
 
 }

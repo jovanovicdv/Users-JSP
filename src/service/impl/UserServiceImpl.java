@@ -35,8 +35,12 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public void save(User user) {
-		userDao.save(user);
+	public void save(User user) throws Exception {
+		if (userDao.findByUsername(user.getUsername())==null) {
+			userDao.save(user);
+		}else {
+			throw new Exception("User already exists!");
+		}
 		
 	}
 
